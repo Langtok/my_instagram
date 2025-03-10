@@ -14,6 +14,12 @@
     "categories": {
       "auth": {
         "myinstagram0fafed4f": {}
+      },
+      "api": {
+        "myinstagram": {}
+      },
+      "storage": {
+        "s33bf2e537": {}
       }
     }
   }
