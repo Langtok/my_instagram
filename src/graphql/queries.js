@@ -1,84 +1,42 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const getUser = /* GraphQL */ `
-  query GetUser($id: ID!) {
-    getUser(id: $id) {
-      id
-      name
-      username
-      phone
-      uniqueId
-      gender
-      avatar
-      bio
-      website
-      followers {
-        nextToken
-        __typename
-      }
-      followings {
-        nextToken
-        __typename
-      }
-      posts {
-        nextToken
-        __typename
-      }
-      comments {
-        nextToken
-        __typename
-      }
-      savedPost {
-        nextToken
-        __typename
-      }
-      taggedPost {
-        nextToken
-        __typename
-      }
-      isPrivate
-      likes {
-        nextToken
-        __typename
-      }
-      follow {
-        nextToken
-        __typename
-      }
-      createdAt
-      updatedAt
-      userFollowersId
-      userFollowingsId
-      __typename
-    }
-  }
-`;
-export const listUsers = /* GraphQL */ `
-  query ListUsers(
-    $filter: ModelUserFilterInput
-    $limit: Int
-    $nextToken: String
-  ) {
-    listUsers(filter: $filter, limit: $limit, nextToken: $nextToken) {
-      items {
+export const search = /* GraphQL */ `
+  query Search($searchTerm: String!) {
+    search(searchTerm: $searchTerm) {
+      users {
         id
-        name
         username
-        phone
-        uniqueId
-        gender
-        avatar
         bio
-        website
-        isPrivate
+        profilePicture
+        likedBy
+        likes
         createdAt
         updatedAt
-        userFollowersId
-        userFollowingsId
         __typename
       }
-      nextToken
+      groups {
+        id
+        followerId
+        followedId
+        createdAt
+        updatedAt
+        __typename
+      }
+      postsByTag {
+        id
+        text
+        imageKey
+        userId
+        likes
+        likedBy
+        tags
+        timestamp
+        createdAt
+        updatedAt
+        userPostsId
+        __typename
+      }
       __typename
     }
   }
@@ -87,42 +45,17 @@ export const getPost = /* GraphQL */ `
   query GetPost($id: ID!) {
     getPost(id: $id) {
       id
-      title
-      description
-      owner {
-        id
-        name
-        username
-        phone
-        uniqueId
-        gender
-        avatar
-        bio
-        website
-        isPrivate
-        createdAt
-        updatedAt
-        userFollowersId
-        userFollowingsId
-        __typename
-      }
+      text
+      imageKey
+      userId
+      likes
+      likedBy
+      tags
       comments {
         nextToken
         __typename
       }
-      image
-      tags {
-        nextToken
-        __typename
-      }
-      savedBy {
-        nextToken
-        __typename
-      }
-      likes {
-        nextToken
-        __typename
-      }
+      timestamp
       createdAt
       updatedAt
       userPostsId
@@ -139,9 +72,13 @@ export const listPosts = /* GraphQL */ `
     listPosts(filter: $filter, limit: $limit, nextToken: $nextToken) {
       items {
         id
-        title
-        description
-        image
+        text
+        imageKey
+        userId
+        likes
+        likedBy
+        tags
+        timestamp
         createdAt
         updatedAt
         userPostsId
@@ -152,119 +89,49 @@ export const listPosts = /* GraphQL */ `
     }
   }
 `;
-export const getLike = /* GraphQL */ `
-  query GetLike($id: ID!) {
-    getLike(id: $id) {
+export const getUser = /* GraphQL */ `
+  query GetUser($id: ID!) {
+    getUser(id: $id) {
       id
-      user {
-        id
-        name
-        username
-        phone
-        uniqueId
-        gender
-        avatar
-        bio
-        website
-        isPrivate
-        createdAt
-        updatedAt
-        userFollowersId
-        userFollowingsId
+      username
+      bio
+      profilePicture
+      posts {
+        nextToken
         __typename
       }
-      post {
-        id
-        title
-        description
-        image
-        createdAt
-        updatedAt
-        userPostsId
+      following {
+        nextToken
         __typename
       }
+      followers {
+        nextToken
+        __typename
+      }
+      likedBy
+      likes
       createdAt
       updatedAt
-      userLikesId
-      postLikesId
       __typename
     }
   }
 `;
-export const listLikes = /* GraphQL */ `
-  query ListLikes(
-    $filter: ModelLikeFilterInput
+export const listUsers = /* GraphQL */ `
+  query ListUsers(
+    $filter: ModelUserFilterInput
     $limit: Int
     $nextToken: String
   ) {
-    listLikes(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    listUsers(filter: $filter, limit: $limit, nextToken: $nextToken) {
       items {
         id
-        createdAt
-        updatedAt
-        userLikesId
-        postLikesId
-        __typename
-      }
-      nextToken
-      __typename
-    }
-  }
-`;
-export const getComment = /* GraphQL */ `
-  query GetComment($id: ID!) {
-    getComment(id: $id) {
-      id
-      post {
-        id
-        title
-        description
-        image
-        createdAt
-        updatedAt
-        userPostsId
-        __typename
-      }
-      user {
-        id
-        name
         username
-        phone
-        uniqueId
-        gender
-        avatar
         bio
-        website
-        isPrivate
+        profilePicture
+        likedBy
+        likes
         createdAt
         updatedAt
-        userFollowersId
-        userFollowingsId
-        __typename
-      }
-      content
-      createdAt
-      updatedAt
-      userCommentsId
-      postCommentsId
-      __typename
-    }
-  }
-`;
-export const listComments = /* GraphQL */ `
-  query ListComments(
-    $filter: ModelCommentFilterInput
-    $limit: Int
-    $nextToken: String
-  ) {
-    listComments(filter: $filter, limit: $limit, nextToken: $nextToken) {
-      items {
-        id
-        content
-        createdAt
-        updatedAt
-        userCommentsId
-        postCommentsId
         __typename
       }
       nextToken
@@ -276,45 +143,32 @@ export const getFollow = /* GraphQL */ `
   query GetFollow($id: ID!) {
     getFollow(id: $id) {
       id
-      star {
+      followerId
+      followedId
+      follower {
         id
-        name
         username
-        phone
-        uniqueId
-        gender
-        avatar
         bio
-        website
-        isPrivate
+        profilePicture
+        likedBy
+        likes
         createdAt
         updatedAt
-        userFollowersId
-        userFollowingsId
         __typename
       }
-      admirer {
+      followed {
         id
-        name
         username
-        phone
-        uniqueId
-        gender
-        avatar
         bio
-        website
-        isPrivate
+        profilePicture
+        likedBy
+        likes
         createdAt
         updatedAt
-        userFollowersId
-        userFollowingsId
         __typename
       }
-      starId
-      admirerId
       createdAt
       updatedAt
-      userFollowId
       __typename
     }
   }
@@ -328,11 +182,10 @@ export const listFollows = /* GraphQL */ `
     listFollows(filter: $filter, limit: $limit, nextToken: $nextToken) {
       items {
         id
-        starId
-        admirerId
+        followerId
+        followedId
         createdAt
         updatedAt
-        userFollowId
         __typename
       }
       nextToken
@@ -340,56 +193,47 @@ export const listFollows = /* GraphQL */ `
     }
   }
 `;
-export const getUserSavedPosts = /* GraphQL */ `
-  query GetUserSavedPosts($id: ID!) {
-    getUserSavedPosts(id: $id) {
+export const getComment = /* GraphQL */ `
+  query GetComment($id: ID!) {
+    getComment(id: $id) {
       id
+      text
       userId
       postId
-      user {
-        id
-        name
-        username
-        phone
-        uniqueId
-        gender
-        avatar
-        bio
-        website
-        isPrivate
-        createdAt
-        updatedAt
-        userFollowersId
-        userFollowingsId
-        __typename
-      }
       post {
         id
-        title
-        description
-        image
+        text
+        imageKey
+        userId
+        likes
+        likedBy
+        tags
+        timestamp
         createdAt
         updatedAt
         userPostsId
         __typename
       }
+      timestamp
       createdAt
       updatedAt
       __typename
     }
   }
 `;
-export const listUserSavedPosts = /* GraphQL */ `
-  query ListUserSavedPosts(
-    $filter: ModelUserSavedPostsFilterInput
+export const listComments = /* GraphQL */ `
+  query ListComments(
+    $filter: ModelCommentFilterInput
     $limit: Int
     $nextToken: String
   ) {
-    listUserSavedPosts(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    listComments(filter: $filter, limit: $limit, nextToken: $nextToken) {
       items {
         id
+        text
         userId
         postId
+        timestamp
         createdAt
         updatedAt
         __typename
@@ -399,75 +243,16 @@ export const listUserSavedPosts = /* GraphQL */ `
     }
   }
 `;
-export const getTaggedUsers = /* GraphQL */ `
-  query GetTaggedUsers($id: ID!) {
-    getTaggedUsers(id: $id) {
-      id
-      userId
-      postId
-      user {
-        id
-        name
-        username
-        phone
-        uniqueId
-        gender
-        avatar
-        bio
-        website
-        isPrivate
-        createdAt
-        updatedAt
-        userFollowersId
-        userFollowingsId
-        __typename
-      }
-      post {
-        id
-        title
-        description
-        image
-        createdAt
-        updatedAt
-        userPostsId
-        __typename
-      }
-      createdAt
-      updatedAt
-      __typename
-    }
-  }
-`;
-export const listTaggedUsers = /* GraphQL */ `
-  query ListTaggedUsers(
-    $filter: ModelTaggedUsersFilterInput
-    $limit: Int
-    $nextToken: String
-  ) {
-    listTaggedUsers(filter: $filter, limit: $limit, nextToken: $nextToken) {
-      items {
-        id
-        userId
-        postId
-        createdAt
-        updatedAt
-        __typename
-      }
-      nextToken
-      __typename
-    }
-  }
-`;
-export const userSavedPostsByUserId = /* GraphQL */ `
-  query UserSavedPostsByUserId(
-    $userId: ID!
+export const usersByUsername = /* GraphQL */ `
+  query UsersByUsername(
+    $username: String!
     $sortDirection: ModelSortDirection
-    $filter: ModelUserSavedPostsFilterInput
+    $filter: ModelUserFilterInput
     $limit: Int
     $nextToken: String
   ) {
-    userSavedPostsByUserId(
-      userId: $userId
+    usersByUsername(
+      username: $username
       sortDirection: $sortDirection
       filter: $filter
       limit: $limit
@@ -475,8 +260,11 @@ export const userSavedPostsByUserId = /* GraphQL */ `
     ) {
       items {
         id
-        userId
-        postId
+        username
+        bio
+        profilePicture
+        likedBy
+        likes
         createdAt
         updatedAt
         __typename
@@ -486,15 +274,71 @@ export const userSavedPostsByUserId = /* GraphQL */ `
     }
   }
 `;
-export const userSavedPostsByPostId = /* GraphQL */ `
-  query UserSavedPostsByPostId(
-    $postId: ID!
+export const followsByFollowerId = /* GraphQL */ `
+  query FollowsByFollowerId(
+    $followerId: ID!
     $sortDirection: ModelSortDirection
-    $filter: ModelUserSavedPostsFilterInput
+    $filter: ModelFollowFilterInput
     $limit: Int
     $nextToken: String
   ) {
-    userSavedPostsByPostId(
+    followsByFollowerId(
+      followerId: $followerId
+      sortDirection: $sortDirection
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+    ) {
+      items {
+        id
+        followerId
+        followedId
+        createdAt
+        updatedAt
+        __typename
+      }
+      nextToken
+      __typename
+    }
+  }
+`;
+export const followsByFollowedId = /* GraphQL */ `
+  query FollowsByFollowedId(
+    $followedId: ID!
+    $sortDirection: ModelSortDirection
+    $filter: ModelFollowFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    followsByFollowedId(
+      followedId: $followedId
+      sortDirection: $sortDirection
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+    ) {
+      items {
+        id
+        followerId
+        followedId
+        createdAt
+        updatedAt
+        __typename
+      }
+      nextToken
+      __typename
+    }
+  }
+`;
+export const commentsByPostId = /* GraphQL */ `
+  query CommentsByPostId(
+    $postId: ID!
+    $sortDirection: ModelSortDirection
+    $filter: ModelCommentFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    commentsByPostId(
       postId: $postId
       sortDirection: $sortDirection
       filter: $filter
@@ -503,64 +347,10 @@ export const userSavedPostsByPostId = /* GraphQL */ `
     ) {
       items {
         id
+        text
         userId
         postId
-        createdAt
-        updatedAt
-        __typename
-      }
-      nextToken
-      __typename
-    }
-  }
-`;
-export const taggedUsersByUserId = /* GraphQL */ `
-  query TaggedUsersByUserId(
-    $userId: ID!
-    $sortDirection: ModelSortDirection
-    $filter: ModelTaggedUsersFilterInput
-    $limit: Int
-    $nextToken: String
-  ) {
-    taggedUsersByUserId(
-      userId: $userId
-      sortDirection: $sortDirection
-      filter: $filter
-      limit: $limit
-      nextToken: $nextToken
-    ) {
-      items {
-        id
-        userId
-        postId
-        createdAt
-        updatedAt
-        __typename
-      }
-      nextToken
-      __typename
-    }
-  }
-`;
-export const taggedUsersByPostId = /* GraphQL */ `
-  query TaggedUsersByPostId(
-    $postId: ID!
-    $sortDirection: ModelSortDirection
-    $filter: ModelTaggedUsersFilterInput
-    $limit: Int
-    $nextToken: String
-  ) {
-    taggedUsersByPostId(
-      postId: $postId
-      sortDirection: $sortDirection
-      filter: $filter
-      limit: $limit
-      nextToken: $nextToken
-    ) {
-      items {
-        id
-        userId
-        postId
+        timestamp
         createdAt
         updatedAt
         __typename

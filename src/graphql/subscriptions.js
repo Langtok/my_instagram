@@ -1,205 +1,24 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const onCreateUser = /* GraphQL */ `
-  subscription OnCreateUser($filter: ModelSubscriptionUserFilterInput) {
-    onCreateUser(filter: $filter) {
-      id
-      name
-      username
-      phone
-      uniqueId
-      gender
-      avatar
-      bio
-      website
-      followers {
-        nextToken
-        __typename
-      }
-      followings {
-        nextToken
-        __typename
-      }
-      posts {
-        nextToken
-        __typename
-      }
-      comments {
-        nextToken
-        __typename
-      }
-      savedPost {
-        nextToken
-        __typename
-      }
-      taggedPost {
-        nextToken
-        __typename
-      }
-      isPrivate
-      likes {
-        nextToken
-        __typename
-      }
-      follow {
-        nextToken
-        __typename
-      }
-      createdAt
-      updatedAt
-      userFollowersId
-      userFollowingsId
-      __typename
-    }
-  }
-`;
-export const onUpdateUser = /* GraphQL */ `
-  subscription OnUpdateUser($filter: ModelSubscriptionUserFilterInput) {
-    onUpdateUser(filter: $filter) {
-      id
-      name
-      username
-      phone
-      uniqueId
-      gender
-      avatar
-      bio
-      website
-      followers {
-        nextToken
-        __typename
-      }
-      followings {
-        nextToken
-        __typename
-      }
-      posts {
-        nextToken
-        __typename
-      }
-      comments {
-        nextToken
-        __typename
-      }
-      savedPost {
-        nextToken
-        __typename
-      }
-      taggedPost {
-        nextToken
-        __typename
-      }
-      isPrivate
-      likes {
-        nextToken
-        __typename
-      }
-      follow {
-        nextToken
-        __typename
-      }
-      createdAt
-      updatedAt
-      userFollowersId
-      userFollowingsId
-      __typename
-    }
-  }
-`;
-export const onDeleteUser = /* GraphQL */ `
-  subscription OnDeleteUser($filter: ModelSubscriptionUserFilterInput) {
-    onDeleteUser(filter: $filter) {
-      id
-      name
-      username
-      phone
-      uniqueId
-      gender
-      avatar
-      bio
-      website
-      followers {
-        nextToken
-        __typename
-      }
-      followings {
-        nextToken
-        __typename
-      }
-      posts {
-        nextToken
-        __typename
-      }
-      comments {
-        nextToken
-        __typename
-      }
-      savedPost {
-        nextToken
-        __typename
-      }
-      taggedPost {
-        nextToken
-        __typename
-      }
-      isPrivate
-      likes {
-        nextToken
-        __typename
-      }
-      follow {
-        nextToken
-        __typename
-      }
-      createdAt
-      updatedAt
-      userFollowersId
-      userFollowingsId
-      __typename
-    }
-  }
-`;
 export const onCreatePost = /* GraphQL */ `
-  subscription OnCreatePost($filter: ModelSubscriptionPostFilterInput) {
-    onCreatePost(filter: $filter) {
+  subscription OnCreatePost(
+    $filter: ModelSubscriptionPostFilterInput
+    $userId: String
+  ) {
+    onCreatePost(filter: $filter, userId: $userId) {
       id
-      title
-      description
-      owner {
-        id
-        name
-        username
-        phone
-        uniqueId
-        gender
-        avatar
-        bio
-        website
-        isPrivate
-        createdAt
-        updatedAt
-        userFollowersId
-        userFollowingsId
-        __typename
-      }
+      text
+      imageKey
+      userId
+      likes
+      likedBy
+      tags
       comments {
         nextToken
         __typename
       }
-      image
-      tags {
-        nextToken
-        __typename
-      }
-      savedBy {
-        nextToken
-        __typename
-      }
-      likes {
-        nextToken
-        __typename
-      }
+      timestamp
       createdAt
       updatedAt
       userPostsId
@@ -208,45 +27,23 @@ export const onCreatePost = /* GraphQL */ `
   }
 `;
 export const onUpdatePost = /* GraphQL */ `
-  subscription OnUpdatePost($filter: ModelSubscriptionPostFilterInput) {
-    onUpdatePost(filter: $filter) {
+  subscription OnUpdatePost(
+    $filter: ModelSubscriptionPostFilterInput
+    $userId: String
+  ) {
+    onUpdatePost(filter: $filter, userId: $userId) {
       id
-      title
-      description
-      owner {
-        id
-        name
-        username
-        phone
-        uniqueId
-        gender
-        avatar
-        bio
-        website
-        isPrivate
-        createdAt
-        updatedAt
-        userFollowersId
-        userFollowingsId
-        __typename
-      }
+      text
+      imageKey
+      userId
+      likes
+      likedBy
+      tags
       comments {
         nextToken
         __typename
       }
-      image
-      tags {
-        nextToken
-        __typename
-      }
-      savedBy {
-        nextToken
-        __typename
-      }
-      likes {
-        nextToken
-        __typename
-      }
+      timestamp
       createdAt
       updatedAt
       userPostsId
@@ -255,45 +52,23 @@ export const onUpdatePost = /* GraphQL */ `
   }
 `;
 export const onDeletePost = /* GraphQL */ `
-  subscription OnDeletePost($filter: ModelSubscriptionPostFilterInput) {
-    onDeletePost(filter: $filter) {
+  subscription OnDeletePost(
+    $filter: ModelSubscriptionPostFilterInput
+    $userId: String
+  ) {
+    onDeletePost(filter: $filter, userId: $userId) {
       id
-      title
-      description
-      owner {
-        id
-        name
-        username
-        phone
-        uniqueId
-        gender
-        avatar
-        bio
-        website
-        isPrivate
-        createdAt
-        updatedAt
-        userFollowersId
-        userFollowingsId
-        __typename
-      }
+      text
+      imageKey
+      userId
+      likes
+      likedBy
+      tags
       comments {
         nextToken
         __typename
       }
-      image
-      tags {
-        nextToken
-        __typename
-      }
-      savedBy {
-        nextToken
-        __typename
-      }
-      likes {
-        nextToken
-        __typename
-      }
+      timestamp
       createdAt
       updatedAt
       userPostsId
@@ -301,417 +76,190 @@ export const onDeletePost = /* GraphQL */ `
     }
   }
 `;
-export const onCreateLike = /* GraphQL */ `
-  subscription OnCreateLike($filter: ModelSubscriptionLikeFilterInput) {
-    onCreateLike(filter: $filter) {
+export const onCreateUser = /* GraphQL */ `
+  subscription OnCreateUser($filter: ModelSubscriptionUserFilterInput) {
+    onCreateUser(filter: $filter) {
       id
-      user {
-        id
-        name
-        username
-        phone
-        uniqueId
-        gender
-        avatar
-        bio
-        website
-        isPrivate
-        createdAt
-        updatedAt
-        userFollowersId
-        userFollowingsId
+      username
+      bio
+      profilePicture
+      posts {
+        nextToken
         __typename
       }
-      post {
-        id
-        title
-        description
-        image
-        createdAt
-        updatedAt
-        userPostsId
+      following {
+        nextToken
         __typename
       }
+      followers {
+        nextToken
+        __typename
+      }
+      likedBy
+      likes
       createdAt
       updatedAt
-      userLikesId
-      postLikesId
       __typename
     }
   }
 `;
-export const onUpdateLike = /* GraphQL */ `
-  subscription OnUpdateLike($filter: ModelSubscriptionLikeFilterInput) {
-    onUpdateLike(filter: $filter) {
+export const onUpdateUser = /* GraphQL */ `
+  subscription OnUpdateUser($filter: ModelSubscriptionUserFilterInput) {
+    onUpdateUser(filter: $filter) {
       id
-      user {
-        id
-        name
-        username
-        phone
-        uniqueId
-        gender
-        avatar
-        bio
-        website
-        isPrivate
-        createdAt
-        updatedAt
-        userFollowersId
-        userFollowingsId
+      username
+      bio
+      profilePicture
+      posts {
+        nextToken
         __typename
       }
-      post {
-        id
-        title
-        description
-        image
-        createdAt
-        updatedAt
-        userPostsId
+      following {
+        nextToken
         __typename
       }
+      followers {
+        nextToken
+        __typename
+      }
+      likedBy
+      likes
       createdAt
       updatedAt
-      userLikesId
-      postLikesId
       __typename
     }
   }
 `;
-export const onDeleteLike = /* GraphQL */ `
-  subscription OnDeleteLike($filter: ModelSubscriptionLikeFilterInput) {
-    onDeleteLike(filter: $filter) {
+export const onDeleteUser = /* GraphQL */ `
+  subscription OnDeleteUser($filter: ModelSubscriptionUserFilterInput) {
+    onDeleteUser(filter: $filter) {
       id
-      user {
-        id
-        name
-        username
-        phone
-        uniqueId
-        gender
-        avatar
-        bio
-        website
-        isPrivate
-        createdAt
-        updatedAt
-        userFollowersId
-        userFollowingsId
+      username
+      bio
+      profilePicture
+      posts {
+        nextToken
         __typename
       }
-      post {
-        id
-        title
-        description
-        image
-        createdAt
-        updatedAt
-        userPostsId
+      following {
+        nextToken
         __typename
       }
+      followers {
+        nextToken
+        __typename
+      }
+      likedBy
+      likes
       createdAt
       updatedAt
-      userLikesId
-      postLikesId
-      __typename
-    }
-  }
-`;
-export const onCreateComment = /* GraphQL */ `
-  subscription OnCreateComment($filter: ModelSubscriptionCommentFilterInput) {
-    onCreateComment(filter: $filter) {
-      id
-      post {
-        id
-        title
-        description
-        image
-        createdAt
-        updatedAt
-        userPostsId
-        __typename
-      }
-      user {
-        id
-        name
-        username
-        phone
-        uniqueId
-        gender
-        avatar
-        bio
-        website
-        isPrivate
-        createdAt
-        updatedAt
-        userFollowersId
-        userFollowingsId
-        __typename
-      }
-      content
-      createdAt
-      updatedAt
-      userCommentsId
-      postCommentsId
-      __typename
-    }
-  }
-`;
-export const onUpdateComment = /* GraphQL */ `
-  subscription OnUpdateComment($filter: ModelSubscriptionCommentFilterInput) {
-    onUpdateComment(filter: $filter) {
-      id
-      post {
-        id
-        title
-        description
-        image
-        createdAt
-        updatedAt
-        userPostsId
-        __typename
-      }
-      user {
-        id
-        name
-        username
-        phone
-        uniqueId
-        gender
-        avatar
-        bio
-        website
-        isPrivate
-        createdAt
-        updatedAt
-        userFollowersId
-        userFollowingsId
-        __typename
-      }
-      content
-      createdAt
-      updatedAt
-      userCommentsId
-      postCommentsId
-      __typename
-    }
-  }
-`;
-export const onDeleteComment = /* GraphQL */ `
-  subscription OnDeleteComment($filter: ModelSubscriptionCommentFilterInput) {
-    onDeleteComment(filter: $filter) {
-      id
-      post {
-        id
-        title
-        description
-        image
-        createdAt
-        updatedAt
-        userPostsId
-        __typename
-      }
-      user {
-        id
-        name
-        username
-        phone
-        uniqueId
-        gender
-        avatar
-        bio
-        website
-        isPrivate
-        createdAt
-        updatedAt
-        userFollowersId
-        userFollowingsId
-        __typename
-      }
-      content
-      createdAt
-      updatedAt
-      userCommentsId
-      postCommentsId
       __typename
     }
   }
 `;
 export const onCreateFollow = /* GraphQL */ `
-  subscription OnCreateFollow($filter: ModelSubscriptionFollowFilterInput) {
-    onCreateFollow(filter: $filter) {
+  subscription OnCreateFollow(
+    $filter: ModelSubscriptionFollowFilterInput
+    $followerId: String
+  ) {
+    onCreateFollow(filter: $filter, followerId: $followerId) {
       id
-      star {
+      followerId
+      followedId
+      follower {
         id
-        name
         username
-        phone
-        uniqueId
-        gender
-        avatar
         bio
-        website
-        isPrivate
+        profilePicture
+        likedBy
+        likes
         createdAt
         updatedAt
-        userFollowersId
-        userFollowingsId
         __typename
       }
-      admirer {
+      followed {
         id
-        name
         username
-        phone
-        uniqueId
-        gender
-        avatar
         bio
-        website
-        isPrivate
+        profilePicture
+        likedBy
+        likes
         createdAt
         updatedAt
-        userFollowersId
-        userFollowingsId
         __typename
       }
-      starId
-      admirerId
       createdAt
       updatedAt
-      userFollowId
       __typename
     }
   }
 `;
 export const onUpdateFollow = /* GraphQL */ `
-  subscription OnUpdateFollow($filter: ModelSubscriptionFollowFilterInput) {
-    onUpdateFollow(filter: $filter) {
+  subscription OnUpdateFollow(
+    $filter: ModelSubscriptionFollowFilterInput
+    $followerId: String
+  ) {
+    onUpdateFollow(filter: $filter, followerId: $followerId) {
       id
-      star {
+      followerId
+      followedId
+      follower {
         id
-        name
         username
-        phone
-        uniqueId
-        gender
-        avatar
         bio
-        website
-        isPrivate
+        profilePicture
+        likedBy
+        likes
         createdAt
         updatedAt
-        userFollowersId
-        userFollowingsId
         __typename
       }
-      admirer {
+      followed {
         id
-        name
         username
-        phone
-        uniqueId
-        gender
-        avatar
         bio
-        website
-        isPrivate
+        profilePicture
+        likedBy
+        likes
         createdAt
         updatedAt
-        userFollowersId
-        userFollowingsId
         __typename
       }
-      starId
-      admirerId
       createdAt
       updatedAt
-      userFollowId
       __typename
     }
   }
 `;
 export const onDeleteFollow = /* GraphQL */ `
-  subscription OnDeleteFollow($filter: ModelSubscriptionFollowFilterInput) {
-    onDeleteFollow(filter: $filter) {
-      id
-      star {
-        id
-        name
-        username
-        phone
-        uniqueId
-        gender
-        avatar
-        bio
-        website
-        isPrivate
-        createdAt
-        updatedAt
-        userFollowersId
-        userFollowingsId
-        __typename
-      }
-      admirer {
-        id
-        name
-        username
-        phone
-        uniqueId
-        gender
-        avatar
-        bio
-        website
-        isPrivate
-        createdAt
-        updatedAt
-        userFollowersId
-        userFollowingsId
-        __typename
-      }
-      starId
-      admirerId
-      createdAt
-      updatedAt
-      userFollowId
-      __typename
-    }
-  }
-`;
-export const onCreateUserSavedPosts = /* GraphQL */ `
-  subscription OnCreateUserSavedPosts(
-    $filter: ModelSubscriptionUserSavedPostsFilterInput
+  subscription OnDeleteFollow(
+    $filter: ModelSubscriptionFollowFilterInput
+    $followerId: String
   ) {
-    onCreateUserSavedPosts(filter: $filter) {
+    onDeleteFollow(filter: $filter, followerId: $followerId) {
       id
-      userId
-      postId
-      user {
+      followerId
+      followedId
+      follower {
         id
-        name
         username
-        phone
-        uniqueId
-        gender
-        avatar
         bio
-        website
-        isPrivate
+        profilePicture
+        likedBy
+        likes
         createdAt
         updatedAt
-        userFollowersId
-        userFollowingsId
         __typename
       }
-      post {
+      followed {
         id
-        title
-        description
-        image
+        username
+        bio
+        profilePicture
+        likedBy
+        likes
         createdAt
         updatedAt
-        userPostsId
         __typename
       }
       createdAt
@@ -720,205 +268,93 @@ export const onCreateUserSavedPosts = /* GraphQL */ `
     }
   }
 `;
-export const onUpdateUserSavedPosts = /* GraphQL */ `
-  subscription OnUpdateUserSavedPosts(
-    $filter: ModelSubscriptionUserSavedPostsFilterInput
+export const onCreateComment = /* GraphQL */ `
+  subscription OnCreateComment(
+    $filter: ModelSubscriptionCommentFilterInput
+    $userId: String
   ) {
-    onUpdateUserSavedPosts(filter: $filter) {
+    onCreateComment(filter: $filter, userId: $userId) {
       id
+      text
       userId
       postId
-      user {
-        id
-        name
-        username
-        phone
-        uniqueId
-        gender
-        avatar
-        bio
-        website
-        isPrivate
-        createdAt
-        updatedAt
-        userFollowersId
-        userFollowingsId
-        __typename
-      }
       post {
         id
-        title
-        description
-        image
+        text
+        imageKey
+        userId
+        likes
+        likedBy
+        tags
+        timestamp
         createdAt
         updatedAt
         userPostsId
         __typename
       }
+      timestamp
       createdAt
       updatedAt
       __typename
     }
   }
 `;
-export const onDeleteUserSavedPosts = /* GraphQL */ `
-  subscription OnDeleteUserSavedPosts(
-    $filter: ModelSubscriptionUserSavedPostsFilterInput
+export const onUpdateComment = /* GraphQL */ `
+  subscription OnUpdateComment(
+    $filter: ModelSubscriptionCommentFilterInput
+    $userId: String
   ) {
-    onDeleteUserSavedPosts(filter: $filter) {
+    onUpdateComment(filter: $filter, userId: $userId) {
       id
+      text
       userId
       postId
-      user {
-        id
-        name
-        username
-        phone
-        uniqueId
-        gender
-        avatar
-        bio
-        website
-        isPrivate
-        createdAt
-        updatedAt
-        userFollowersId
-        userFollowingsId
-        __typename
-      }
       post {
         id
-        title
-        description
-        image
+        text
+        imageKey
+        userId
+        likes
+        likedBy
+        tags
+        timestamp
         createdAt
         updatedAt
         userPostsId
         __typename
       }
+      timestamp
       createdAt
       updatedAt
       __typename
     }
   }
 `;
-export const onCreateTaggedUsers = /* GraphQL */ `
-  subscription OnCreateTaggedUsers(
-    $filter: ModelSubscriptionTaggedUsersFilterInput
+export const onDeleteComment = /* GraphQL */ `
+  subscription OnDeleteComment(
+    $filter: ModelSubscriptionCommentFilterInput
+    $userId: String
   ) {
-    onCreateTaggedUsers(filter: $filter) {
+    onDeleteComment(filter: $filter, userId: $userId) {
       id
+      text
       userId
       postId
-      user {
-        id
-        name
-        username
-        phone
-        uniqueId
-        gender
-        avatar
-        bio
-        website
-        isPrivate
-        createdAt
-        updatedAt
-        userFollowersId
-        userFollowingsId
-        __typename
-      }
       post {
         id
-        title
-        description
-        image
+        text
+        imageKey
+        userId
+        likes
+        likedBy
+        tags
+        timestamp
         createdAt
         updatedAt
         userPostsId
         __typename
       }
-      createdAt
-      updatedAt
-      __typename
-    }
-  }
-`;
-export const onUpdateTaggedUsers = /* GraphQL */ `
-  subscription OnUpdateTaggedUsers(
-    $filter: ModelSubscriptionTaggedUsersFilterInput
-  ) {
-    onUpdateTaggedUsers(filter: $filter) {
-      id
-      userId
-      postId
-      user {
-        id
-        name
-        username
-        phone
-        uniqueId
-        gender
-        avatar
-        bio
-        website
-        isPrivate
-        createdAt
-        updatedAt
-        userFollowersId
-        userFollowingsId
-        __typename
-      }
-      post {
-        id
-        title
-        description
-        image
-        createdAt
-        updatedAt
-        userPostsId
-        __typename
-      }
-      createdAt
-      updatedAt
-      __typename
-    }
-  }
-`;
-export const onDeleteTaggedUsers = /* GraphQL */ `
-  subscription OnDeleteTaggedUsers(
-    $filter: ModelSubscriptionTaggedUsersFilterInput
-  ) {
-    onDeleteTaggedUsers(filter: $filter) {
-      id
-      userId
-      postId
-      user {
-        id
-        name
-        username
-        phone
-        uniqueId
-        gender
-        avatar
-        bio
-        website
-        isPrivate
-        createdAt
-        updatedAt
-        userFollowersId
-        userFollowingsId
-        __typename
-      }
-      post {
-        id
-        title
-        description
-        image
-        createdAt
-        updatedAt
-        userPostsId
-        __typename
-      }
+      timestamp
       createdAt
       updatedAt
       __typename
