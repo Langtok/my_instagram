@@ -1,46 +1,6 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const search = /* GraphQL */ `
-  query Search($searchTerm: String!) {
-    search(searchTerm: $searchTerm) {
-      users {
-        id
-        username
-        bio
-        profilePicture
-        likedBy
-        likes
-        createdAt
-        updatedAt
-        __typename
-      }
-      groups {
-        id
-        followerId
-        followedId
-        createdAt
-        updatedAt
-        __typename
-      }
-      postsByTag {
-        id
-        text
-        imageKey
-        userId
-        likes
-        likedBy
-        tags
-        timestamp
-        createdAt
-        updatedAt
-        userPostsId
-        __typename
-      }
-      __typename
-    }
-  }
-`;
 export const getPost = /* GraphQL */ `
   query GetPost($id: ID!) {
     getPost(id: $id) {
@@ -100,16 +60,8 @@ export const getUser = /* GraphQL */ `
         nextToken
         __typename
       }
-      following {
-        nextToken
-        __typename
-      }
-      followers {
-        nextToken
-        __typename
-      }
-      likedBy
       likes
+      likedBy
       createdAt
       updatedAt
       __typename
@@ -128,62 +80,8 @@ export const listUsers = /* GraphQL */ `
         username
         bio
         profilePicture
-        likedBy
         likes
-        createdAt
-        updatedAt
-        __typename
-      }
-      nextToken
-      __typename
-    }
-  }
-`;
-export const getFollow = /* GraphQL */ `
-  query GetFollow($id: ID!) {
-    getFollow(id: $id) {
-      id
-      followerId
-      followedId
-      follower {
-        id
-        username
-        bio
-        profilePicture
         likedBy
-        likes
-        createdAt
-        updatedAt
-        __typename
-      }
-      followed {
-        id
-        username
-        bio
-        profilePicture
-        likedBy
-        likes
-        createdAt
-        updatedAt
-        __typename
-      }
-      createdAt
-      updatedAt
-      __typename
-    }
-  }
-`;
-export const listFollows = /* GraphQL */ `
-  query ListFollows(
-    $filter: ModelFollowFilterInput
-    $limit: Int
-    $nextToken: String
-  ) {
-    listFollows(filter: $filter, limit: $limit, nextToken: $nextToken) {
-      items {
-        id
-        followerId
-        followedId
         createdAt
         updatedAt
         __typename
@@ -263,64 +161,8 @@ export const usersByUsername = /* GraphQL */ `
         username
         bio
         profilePicture
-        likedBy
         likes
-        createdAt
-        updatedAt
-        __typename
-      }
-      nextToken
-      __typename
-    }
-  }
-`;
-export const followsByFollowerId = /* GraphQL */ `
-  query FollowsByFollowerId(
-    $followerId: ID!
-    $sortDirection: ModelSortDirection
-    $filter: ModelFollowFilterInput
-    $limit: Int
-    $nextToken: String
-  ) {
-    followsByFollowerId(
-      followerId: $followerId
-      sortDirection: $sortDirection
-      filter: $filter
-      limit: $limit
-      nextToken: $nextToken
-    ) {
-      items {
-        id
-        followerId
-        followedId
-        createdAt
-        updatedAt
-        __typename
-      }
-      nextToken
-      __typename
-    }
-  }
-`;
-export const followsByFollowedId = /* GraphQL */ `
-  query FollowsByFollowedId(
-    $followedId: ID!
-    $sortDirection: ModelSortDirection
-    $filter: ModelFollowFilterInput
-    $limit: Int
-    $nextToken: String
-  ) {
-    followsByFollowedId(
-      followedId: $followedId
-      sortDirection: $sortDirection
-      filter: $filter
-      limit: $limit
-      nextToken: $nextToken
-    ) {
-      items {
-        id
-        followerId
-        followedId
+        likedBy
         createdAt
         updatedAt
         __typename

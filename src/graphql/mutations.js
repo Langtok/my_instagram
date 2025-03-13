@@ -1,40 +1,6 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const followUser = /* GraphQL */ `
-  mutation FollowUser($followedId: ID!) {
-    followUser(followedId: $followedId) {
-      id
-      followerId
-      followedId
-      follower {
-        id
-        username
-        bio
-        profilePicture
-        likedBy
-        likes
-        createdAt
-        updatedAt
-        __typename
-      }
-      followed {
-        id
-        username
-        bio
-        profilePicture
-        likedBy
-        likes
-        createdAt
-        updatedAt
-        __typename
-      }
-      createdAt
-      updatedAt
-      __typename
-    }
-  }
-`;
 export const createPost = /* GraphQL */ `
   mutation CreatePost(
     $input: CreatePostInput!
@@ -124,16 +90,8 @@ export const createUser = /* GraphQL */ `
         nextToken
         __typename
       }
-      following {
-        nextToken
-        __typename
-      }
-      followers {
-        nextToken
-        __typename
-      }
-      likedBy
       likes
+      likedBy
       createdAt
       updatedAt
       __typename
@@ -154,16 +112,8 @@ export const updateUser = /* GraphQL */ `
         nextToken
         __typename
       }
-      following {
-        nextToken
-        __typename
-      }
-      followers {
-        nextToken
-        __typename
-      }
-      likedBy
       likes
+      likedBy
       createdAt
       updatedAt
       __typename
@@ -184,127 +134,8 @@ export const deleteUser = /* GraphQL */ `
         nextToken
         __typename
       }
-      following {
-        nextToken
-        __typename
-      }
-      followers {
-        nextToken
-        __typename
-      }
-      likedBy
       likes
-      createdAt
-      updatedAt
-      __typename
-    }
-  }
-`;
-export const createFollow = /* GraphQL */ `
-  mutation CreateFollow(
-    $input: CreateFollowInput!
-    $condition: ModelFollowConditionInput
-  ) {
-    createFollow(input: $input, condition: $condition) {
-      id
-      followerId
-      followedId
-      follower {
-        id
-        username
-        bio
-        profilePicture
-        likedBy
-        likes
-        createdAt
-        updatedAt
-        __typename
-      }
-      followed {
-        id
-        username
-        bio
-        profilePicture
-        likedBy
-        likes
-        createdAt
-        updatedAt
-        __typename
-      }
-      createdAt
-      updatedAt
-      __typename
-    }
-  }
-`;
-export const updateFollow = /* GraphQL */ `
-  mutation UpdateFollow(
-    $input: UpdateFollowInput!
-    $condition: ModelFollowConditionInput
-  ) {
-    updateFollow(input: $input, condition: $condition) {
-      id
-      followerId
-      followedId
-      follower {
-        id
-        username
-        bio
-        profilePicture
-        likedBy
-        likes
-        createdAt
-        updatedAt
-        __typename
-      }
-      followed {
-        id
-        username
-        bio
-        profilePicture
-        likedBy
-        likes
-        createdAt
-        updatedAt
-        __typename
-      }
-      createdAt
-      updatedAt
-      __typename
-    }
-  }
-`;
-export const deleteFollow = /* GraphQL */ `
-  mutation DeleteFollow(
-    $input: DeleteFollowInput!
-    $condition: ModelFollowConditionInput
-  ) {
-    deleteFollow(input: $input, condition: $condition) {
-      id
-      followerId
-      followedId
-      follower {
-        id
-        username
-        bio
-        profilePicture
-        likedBy
-        likes
-        createdAt
-        updatedAt
-        __typename
-      }
-      followed {
-        id
-        username
-        bio
-        profilePicture
-        likedBy
-        likes
-        createdAt
-        updatedAt
-        __typename
-      }
+      likedBy
       createdAt
       updatedAt
       __typename

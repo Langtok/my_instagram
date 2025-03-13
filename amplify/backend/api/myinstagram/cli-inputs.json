@@ -1,0 +1,13 @@
+{
+  "version": 1,
+  "serviceConfiguration": {
+    "apiName": "myinstagram",
+    "serviceName": "AppSync",
+    "defaultAuthType": {
+      "mode": "AMAZON_COGNITO_USER_POOLS",
+      "cognitoUserPoolId": "authmyinstagramc54c3dd2"
+    },
+    "additionalAuthTypes": [],
+    "conflictResolution": {}
+  }
+}

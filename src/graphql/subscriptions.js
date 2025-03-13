@@ -87,16 +87,8 @@ export const onCreateUser = /* GraphQL */ `
         nextToken
         __typename
       }
-      following {
-        nextToken
-        __typename
-      }
-      followers {
-        nextToken
-        __typename
-      }
-      likedBy
       likes
+      likedBy
       createdAt
       updatedAt
       __typename
@@ -114,16 +106,8 @@ export const onUpdateUser = /* GraphQL */ `
         nextToken
         __typename
       }
-      following {
-        nextToken
-        __typename
-      }
-      followers {
-        nextToken
-        __typename
-      }
-      likedBy
       likes
+      likedBy
       createdAt
       updatedAt
       __typename
@@ -141,127 +125,8 @@ export const onDeleteUser = /* GraphQL */ `
         nextToken
         __typename
       }
-      following {
-        nextToken
-        __typename
-      }
-      followers {
-        nextToken
-        __typename
-      }
-      likedBy
       likes
-      createdAt
-      updatedAt
-      __typename
-    }
-  }
-`;
-export const onCreateFollow = /* GraphQL */ `
-  subscription OnCreateFollow(
-    $filter: ModelSubscriptionFollowFilterInput
-    $followerId: String
-  ) {
-    onCreateFollow(filter: $filter, followerId: $followerId) {
-      id
-      followerId
-      followedId
-      follower {
-        id
-        username
-        bio
-        profilePicture
-        likedBy
-        likes
-        createdAt
-        updatedAt
-        __typename
-      }
-      followed {
-        id
-        username
-        bio
-        profilePicture
-        likedBy
-        likes
-        createdAt
-        updatedAt
-        __typename
-      }
-      createdAt
-      updatedAt
-      __typename
-    }
-  }
-`;
-export const onUpdateFollow = /* GraphQL */ `
-  subscription OnUpdateFollow(
-    $filter: ModelSubscriptionFollowFilterInput
-    $followerId: String
-  ) {
-    onUpdateFollow(filter: $filter, followerId: $followerId) {
-      id
-      followerId
-      followedId
-      follower {
-        id
-        username
-        bio
-        profilePicture
-        likedBy
-        likes
-        createdAt
-        updatedAt
-        __typename
-      }
-      followed {
-        id
-        username
-        bio
-        profilePicture
-        likedBy
-        likes
-        createdAt
-        updatedAt
-        __typename
-      }
-      createdAt
-      updatedAt
-      __typename
-    }
-  }
-`;
-export const onDeleteFollow = /* GraphQL */ `
-  subscription OnDeleteFollow(
-    $filter: ModelSubscriptionFollowFilterInput
-    $followerId: String
-  ) {
-    onDeleteFollow(filter: $filter, followerId: $followerId) {
-      id
-      followerId
-      followedId
-      follower {
-        id
-        username
-        bio
-        profilePicture
-        likedBy
-        likes
-        createdAt
-        updatedAt
-        __typename
-      }
-      followed {
-        id
-        username
-        bio
-        profilePicture
-        likedBy
-        likes
-        createdAt
-        updatedAt
-        __typename
-      }
+      likedBy
       createdAt
       updatedAt
       __typename
